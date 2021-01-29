@@ -9,6 +9,9 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductListComponent implements OnInit {
   pageTitle: string = 'Product List';
   public products: any;
+  imageWidth: number = 50;
+  imageMargin: number = 2;
+  showImage: boolean = false;
 
   constructor(private productService: ProductService) { }
 
@@ -22,6 +25,10 @@ export class ProductListComponent implements OnInit {
       err =>  console.error(err),
       () => console.log('products loaded')
     );
+  }
+
+  toggleImage(): void{
+    this.showImage = !this.showImage;
   }
 
 }
